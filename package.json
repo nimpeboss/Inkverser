@@ -1,0 +1,24 @@
+{
+    "name": "ink-dashboard",
+    "version": "1.0.0",
+    "type": "module",
+    "bin": {
+        "dashboard": "./dist/cli.js"
+    },
+    "scripts": {
+        "start": "tsx src/cli.tsx",
+        "build": "tsc",
+        "dev": "tsx watch src/cli.tsx"
+    },
+    "dependencies": {
+        "ink": "^6.0.0",
+        "react": "^19.0.0",
+        "systeminformation": "^5.22.0"
+    },
+    "devDependencies": {
+        "@types/node": "^22.19.17",
+        "@types/react": "^19.0.0",
+        "tsx": "^4.0.0",
+        "typescript": "^5.0.0"
+    }
+}
