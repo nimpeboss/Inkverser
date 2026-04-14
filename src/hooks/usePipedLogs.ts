@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import readline from "readline";
 
-declare const process: { stdin?: { isTTY?: boolean } } | undefined;
+declare const process: { stdin?: NodeJS.ReadStream & { isTTY?: boolean } } | undefined;
 
 export interface LogEntry {
   id: number;
@@ -30,7 +30,7 @@ export function usePipedLogs(enabled: boolean): LogEntry[] {
     const [idCounter, setIdCounter] = useState(0);
 
     useEffect(() => {
-        if (!enabled || typeof process === "undefined" || process.stdin?.isTTY)
+        if (!enabled || typeof process === "undefined" || !process.stdin || process.stdin.isTTY)
             return;
 
         const rl = readline.createInterface({
